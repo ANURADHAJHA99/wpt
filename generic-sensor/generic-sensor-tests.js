@@ -143,7 +143,7 @@ function runGenericSensorTests(sensorName,
   }, `${sensorName}: Test that frequency is limited to the minimum supported\
  frequency.`);
 
-  promise_test(async t => {
+  sensor_test(async t => {
     assert_true(sensorName in self);
     const iframe = document.createElement('iframe');
     iframe.allow = featurePolicies.join(' \'none\'; ') + ' \'none\';';
@@ -170,7 +170,7 @@ function runGenericSensorTests(sensorName,
   }, `${sensorName}: Test that sensor cannot be constructed within iframe\
  disallowed to use feature policy.`);
 
-  promise_test(async t => {
+  sensor_test(async t => {
     assert_true(sensorName in self);
     const iframe = document.createElement('iframe');
     iframe.allow = featurePolicies.join(';') + ';';
